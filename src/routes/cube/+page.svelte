@@ -4,31 +4,46 @@
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
   onMount(() => {
-    const scene = new THREE.Scene()
-
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    )
-    camera.position.z = 2
-
-    const main = document.querySelector('main')!;
+    const main = document.querySelector('main') as HTMLCanvasElement;
     const rect = main.getBoundingClientRect();
 
-    const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#c')! })
-    renderer.setSize(rect.width, rect.height);
+    const scene = new THREE.Scene()
+    scene.background = new THREE.Color(0x111111);
 
-    camera.aspect = rect.width / rect.height;
-    camera.updateProjectionMatrix();
+    const camera1 = new THREE.PerspectiveCamera(
+      75,
+      rect.width / (rect.height / 2),
+      0.1,
+      1000
+    )
 
-    const controls = new OrbitControls( camera, renderer.domElement );
+    const camera2 = new THREE.OrthographicCamera(
+      -2,
+      2,
+      2,
+      -2,
+      1,
+      1000
+    )
+
+    camera1.position.z = 2
+    camera2.position.z = 2
+
+    /**
+     * WebGLRenderer is the most used, fastest, and most supported renderer.
+     */
+    const renderer1 = new THREE.WebGLRenderer({ canvas: document.querySelector('#c1') as HTMLCanvasElement })
+    renderer1.setSize(rect.width, (rect.height / 2));
+
+    const renderer2 = new THREE.WebGLRenderer({ canvas: document.querySelector('#c2') as HTMLCanvasElement })
+    renderer2.setSize(rect.width, (rect.height / 2));
+
+    const controls = new OrbitControls( camera1, renderer1.domElement );
 
     const geometry = new THREE.BoxGeometry()
     const material = new THREE.MeshBasicMaterial({
-        color: 0x00ff00,
-        wireframe: true,
+      color: 0x00ff00,
+      wireframe: true,
     })
 
     const cube = new THREE.Mesh(geometry, material)
@@ -36,27 +51,32 @@
 
     window.addEventListener('resize', onWindowResize, false)
     function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight
-        camera.updateProjectionMatrix()
-        renderer.setSize(window.innerWidth, window.innerHeight)
-        render()
+      camera1.aspect = rect.width / rect.height;
+      camera1.updateProjectionMatrix();
+
+      renderer1.setSize(rect.width, (rect.height / 2));
+      renderer2.setSize(rect.width, (rect.height / 2));
+      
+      render();
     }
 
     function animate() {
-        requestAnimationFrame(animate)
+      requestAnimationFrame(animate)
 
-        cube.rotation.x += 0.01
-        cube.rotation.y += 0.01
+      cube.rotation.x += 0.01
+      cube.rotation.y += 0.01
 
-        render()
+      render()
     }
 
     function render() {
-        renderer.render(scene, camera)
+      renderer1.render(scene, camera1)
+      renderer2.render(scene, camera2)
     }
 
     animate()
   })
 </script>
 
-<canvas id="c"></canvas>
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
