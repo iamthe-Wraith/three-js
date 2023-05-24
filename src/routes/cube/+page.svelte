@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import * as THREE from 'three'
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+    import Stats from 'three/examples/jsm/libs/stats.module'
 
   onMount(() => {
     const main = document.querySelector('main') as HTMLCanvasElement;
@@ -15,19 +16,21 @@
       rect.width / (rect.height / 2),
       0.1,
       1000
-    )
+    );
 
+    const asp = (rect.height / 2) / rect.width;
+    console.log('asp: ', asp);
     const camera2 = new THREE.OrthographicCamera(
-      -2,
-      2,
-      2,
-      -2,
-      1,
+      -2 - asp, 
+      2 + asp, 
+      -2, 
+      2, 
+      1, 
       1000
-    )
+    );
 
-    camera1.position.z = 2
-    camera2.position.z = 2
+    camera1.position.z = 2;
+    camera2.position.z = 2;
 
     /**
      * WebGLRenderer is the most used, fastest, and most supported renderer.
@@ -51,7 +54,7 @@
 
     window.addEventListener('resize', onWindowResize, false)
     function onWindowResize() {
-      camera1.aspect = rect.width / rect.height;
+      camera1.aspect = rect.width / (rect.height / 2);
       camera1.updateProjectionMatrix();
 
       renderer1.setSize(rect.width, (rect.height / 2));
@@ -67,7 +70,11 @@
       cube.rotation.y += 0.01
 
       render()
+      stats.update();
     }
+
+    const stats = new Stats();
+    main.appendChild(stats.dom);
 
     function render() {
       renderer1.render(scene, camera1)
