@@ -1,6 +1,7 @@
-<script lang="ts">
+<script lang="ts" type="module">
     import { onMount } from 'svelte';
     import * as THREE from 'three'
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
   onMount(() => {
     const scene = new THREE.Scene()
@@ -17,11 +18,12 @@
     const rect = main.getBoundingClientRect();
 
     const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#c')! })
-    // renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(rect.width, rect.height);
 
     camera.aspect = rect.width / rect.height;
     camera.updateProjectionMatrix();
+
+    const controls = new OrbitControls( camera, renderer.domElement );
 
     const geometry = new THREE.BoxGeometry()
     const material = new THREE.MeshBasicMaterial({
