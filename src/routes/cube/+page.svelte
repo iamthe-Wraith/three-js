@@ -3,8 +3,9 @@
     import * as THREE from 'three'
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
     import Stats from 'three/examples/jsm/libs/stats.module'
+    // import { GUI } from 'dat.gui';
 
-  onMount(() => {
+  onMount(async () => {
     const main = document.querySelector('main') as HTMLCanvasElement;
     const rect = main.getBoundingClientRect();
 
@@ -18,15 +19,19 @@
       1000
     );
 
-    const asp = (rect.height / 2) / rect.width;
-    console.log('asp: ', asp);
+    const viewSize = rect.height;
+    const aspectRatio = rect.width / (rect.height / 2);
+    const lr = ((aspectRatio * viewSize) / 2) * 0.005
+    const tb = (viewSize / 2) * 0.005
+
+
     const camera2 = new THREE.OrthographicCamera(
-      -2 - asp, 
-      2 + asp, 
-      -2, 
-      2, 
-      1, 
-      1000
+      -lr, 
+      lr, 
+      tb, 
+      -tb, 
+      1,
+      1000,
     );
 
     camera1.position.z = 2;
@@ -63,11 +68,29 @@
       render();
     }
 
+    // const gui = new GUI();
+    const gui = new (await import('dat.gui')).GUI();
+
+    const cubeFolder = gui.addFolder('Cube');
+    gui.add(cube.rotation, 'x', 0, Math.PI * 2);
+    gui.add(cube.rotation, 'y', 0, Math.PI * 2);
+    gui.add(cube.rotation, 'z', 0, Math.PI * 2);
+
+    const camera1Folder = gui.addFolder('Camera 1');
+    camera1Folder.add(camera1.position, 'x', -10, 10);
+    camera1Folder.add(camera1.position, 'y', -10, 10);
+    camera1Folder.add(camera1.position, 'z', -10, 10);
+
+    const camera2Folder = gui.addFolder('Camera 2');
+    camera2Folder.add(camera2.position, 'x', -10, 10);
+    camera2Folder.add(camera2.position, 'y', -10, 10);
+    camera2Folder.add(camera2.position, 'z', -10, 10);
+
     function animate() {
       requestAnimationFrame(animate)
 
-      cube.rotation.x += 0.01
-      cube.rotation.y += 0.01
+      // cube.rotation.x += 0.01
+      // cube.rotation.y += 0.01
 
       render()
       stats.update();
