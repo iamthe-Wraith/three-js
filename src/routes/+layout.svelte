@@ -8,8 +8,9 @@
       <ul>
         <li>Examples</li>
         <ul>
-          <li><a href="/cube/mesh-basic-material">Mesh Basic Material</a></li>
-          <li><a href="/cube/mesh-normal-material">Mesh Normal Material</a></li>
+          <li><a href="/examples/mesh-basic-material">Mesh Basic Material</a></li>
+          <li><a href="/examples/mesh-normal-material">Mesh Normal Material</a></li>
+          <li><a href="/examples/mesh-lambert-material">Mesh Lambert Material</a></li>
         </ul>
       </ul>
     </nav>

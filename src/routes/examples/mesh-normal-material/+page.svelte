@@ -32,29 +32,38 @@ onMount(async () => {
 
   const controls = new OrbitControls( camera1, renderer1.domElement );
 
-  const geometry = new THREE.BoxGeometry()
+  const boxGeometry = new THREE.BoxGeometry();
+  const torusKnotGeometry = new THREE.TorusKnotGeometry();
+  const torusGeometry = new THREE.TorusGeometry();
+  const planeGeometry = new THREE.PlaneGeometry();
+  const sphereGeometry = new THREE.SphereGeometry();
+
+  /**
+   * great for when you first start a project and havent created your
+   * textures and materials.
+   */
   const material = new THREE.MeshNormalMaterial({
     transparent: true,
     opacity: 0.5,
   })
 
-  const cube1 = new THREE.Mesh(geometry, material)
-  const cube2 = new THREE.Mesh(geometry, material)
-  const cube3 = new THREE.Mesh(geometry, material)
-  const cube4 = new THREE.Mesh(geometry, material)
-  const cube5 = new THREE.Mesh(geometry, material)
+  const cube = new THREE.Mesh(boxGeometry, material)
+  const torusKnot = new THREE.Mesh(torusKnotGeometry, material)
+  const torus = new THREE.Mesh(torusGeometry, material)
+  const plane = new THREE.Mesh(planeGeometry, material)
+  const sphere = new THREE.Mesh(sphereGeometry, material)
 
-  scene.add(cube1)
-  scene.add(cube2)
-  scene.add(cube3)
-  scene.add(cube4)
-  scene.add(cube5)
+  scene.add(cube)
+  scene.add(torusKnot)
+  scene.add(torus)
+  scene.add(plane)
+  scene.add(sphere)
 
-  cube1.position.x = -2.25
-  cube2.position.x = -0.75
-  cube3.position.x = 0.75
-  cube4.position.x = 2.25
-  cube5.position.x = 3.75
+  cube.position.x = -6;
+  torusKnot.position.x = -3;
+  torus.position.x = 0.75;
+  plane.position.x = 3;
+  sphere.position.x = 5;
 
   window.addEventListener('resize', onWindowResize, false)
   function onWindowResize() {
@@ -73,19 +82,19 @@ onMount(async () => {
   cubeFolder.open();
 
   const cubeRotationFolder = cubeFolder.addFolder('Rotation');
-  cubeRotationFolder.add(cube1.rotation, 'x', 0, Math.PI * 2);
-  cubeRotationFolder.add(cube1.rotation, 'y', 0, Math.PI * 2);
-  cubeRotationFolder.add(cube1.rotation, 'z', 0, Math.PI * 2);
+  cubeRotationFolder.add(cube.rotation, 'x', 0, Math.PI * 2);
+  cubeRotationFolder.add(cube.rotation, 'y', 0, Math.PI * 2);
+  cubeRotationFolder.add(cube.rotation, 'z', 0, Math.PI * 2);
 
-  const cubeMeshFolder = cubeFolder.addFolder('Material');
-  cubeMeshFolder.open();
-  cubeMeshFolder.add(material, 'wireframe');
-  cubeMeshFolder.add(material, 'transparent');
-  cubeMeshFolder.add(material, 'opacity', 0, 1, 0.01);
-  cubeMeshFolder.add(material, 'depthTest');
-  cubeMeshFolder.add(material, 'depthWrite');
-  cubeMeshFolder.add(material, 'visible');
-  cubeMeshFolder.add(material, 'side', {
+  const MeshFolder = gui.addFolder('Material');
+  MeshFolder.open();
+  MeshFolder.add(material, 'wireframe');
+  MeshFolder.add(material, 'transparent');
+  MeshFolder.add(material, 'opacity', 0, 1, 0.01);
+  MeshFolder.add(material, 'depthTest');
+  MeshFolder.add(material, 'depthWrite');
+  MeshFolder.add(material, 'visible');
+  MeshFolder.add(material, 'side', {
     FrontSide: THREE.FrontSide,
     BackSide: THREE.BackSide,
     DoubleSide: THREE.DoubleSide,
@@ -93,6 +102,7 @@ onMount(async () => {
     material.side = Number(material.side) as THREE.Side;
     material.needsUpdate = true
   });
+  MeshFolder.add(material, 'flatShading').onChange(() => { material.needsUpdate = true });
 
   const cameraFolder = gui.addFolder('Camera');
 
