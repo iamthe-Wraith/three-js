@@ -6,12 +6,25 @@
   <header>
     <nav>
       <ul>
-        <li>Examples</li>
-        <ul>
-          <li><a href="/examples/mesh-basic-material">Mesh Basic Material</a></li>
-          <li><a href="/examples/mesh-normal-material">Mesh Normal Material</a></li>
-          <li><a href="/examples/mesh-lambert-material">Mesh Lambert Material</a></li>
-        </ul>
+        <li>
+          Materials
+          <ul>
+            <li><a href="/materials/mesh-basic-material">Mesh Basic Material</a></li>
+            <li><a href="/materials/mesh-normal-material">Mesh Normal Material</a></li>
+            <li><a href="/materials/mesh-lambert-material">Mesh Lambert Material</a></li>
+            <li><a href="/materials/mesh-phong-material">Mesh Phong Material</a></li>
+            <li><a href="/materials/mesh-standard-material">Mesh Standard Material</a></li>
+            <li><a href="/materials/mesh-physical-material">Mesh Physical Material</a></li>
+            <li><a href="/materials/mesh-matcap-material">Mesh Matcap Material</a></li>
+            <li><a href="/materials/mesh-toon-material">Mesh Toon Material</a></li>
+          </ul>
+        </li>
+        <li>
+          Maps
+          <ul>
+            <li><a href="/maps/specular-map">Specular Map</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  
@@ -37,11 +50,6 @@
 
     & ul {
       list-style: none;
-
-      & li:has(+ ul) {
-        font-size: 1.1rem;
-        font-weight: bold;
-      }
 
       & ul {
         padding: .5rem 0 0 1rem;
