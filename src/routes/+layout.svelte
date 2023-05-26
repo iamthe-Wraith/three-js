@@ -6,7 +6,11 @@
   <header>
     <nav>
       <ul>
-        <li><a href="/cube">Cube</a></li>
+        <li>Examples</li>
+        <ul>
+          <li><a href="/cube/mesh-basic-material">Mesh Basic Material</a></li>
+          <li><a href="/cube/mesh-normal-material">Mesh Normal Material</a></li>
+        </ul>
       </ul>
     </nav>
   </header>  
@@ -32,6 +36,15 @@
 
     & ul {
       list-style: none;
+
+      & li:has(+ ul) {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      & ul {
+        padding: .5rem 0 0 1rem;
+      }
 
       & a {
         text-decoration: none;
