@@ -23,6 +23,7 @@
           Maps
           <ul>
             <li><a href="/maps/specular-map">Specular Map</a></li>
+            <li><a href="/maps/roughness-metalness-maps">Roughness and Metalness Maps</a></li>
           </ul>
         </li>
       </ul>
