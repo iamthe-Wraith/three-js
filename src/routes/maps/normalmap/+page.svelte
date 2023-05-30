@@ -3,11 +3,8 @@
   import * as THREE from 'three'
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import Stats from 'three/examples/jsm/libs/stats.module';
-  import gridFile from '$assets/grid.png';
-  import specularGrayscaleTextureFile from '$assets/specularMaps/grayscale-test.png';
-  import specularEarthTextureFile from '$assets/specularMaps/earthSpecular.jpg';
   import worldColorFile from '$assets/specularMaps/worldColour.5400x2700.jpg';
-  import earthBumpMapFile from '$assets/bumpMaps/earth_bumpmap.jpg';
+  import normalMapFile from '$assets/bumpMaps/earth_normalmap_8192x4096.jpg';
 
   onMount(async () => {
     const main = document.querySelector('main') as HTMLCanvasElement;
@@ -17,7 +14,7 @@
     scene.add(new THREE.AxesHelper(5))
 
     const light = new THREE.PointLight(0xffffff, 2)
-    light.position.set(0, 5, 10)
+    light.position.set(0, 2, 5)
     scene.add(light)
 
     const camera = new THREE.PerspectiveCamera(
@@ -39,12 +36,15 @@
 
     const material = new THREE.MeshPhongMaterial()
 
-    const texture = new THREE.TextureLoader().load(worldColorFile)
+    const texture = new THREE.TextureLoader().load(worldColorFile);
     material.map = texture
 
-    const bumpTexture = new THREE.TextureLoader().load(earthBumpMapFile);
-    material.bumpMap = bumpTexture
-    material.bumpScale = 0.015
+    /**
+     * Normal maps are better than bump maps.
+     */
+    const normalTexture = new THREE.TextureLoader().load(normalMapFile);
+    material.normalMap = normalTexture
+    material.normalScale.set(2, 2)
 
     const plane = new THREE.Mesh(planeGeometry, material)
     scene.add(plane)
@@ -61,7 +61,10 @@
     document.body.appendChild(stats.dom)
 
     const gui = new (await import('dat.gui')).GUI();
-    gui.add(material, 'bumpScale', 0, 1, 0.01)
+
+    gui.add(material.normalScale, 'x', 0, 10, 0.01)
+    gui.add(material.normalScale, 'y', 0, 10, 0.01)
+    gui.add(light.position, 'x', -20, 20).name('Light Pos X')
 
     function animate() {
       requestAnimationFrame(animate)
