@@ -26,6 +26,8 @@
             <li><a href="/maps/roughness-metalness-maps">Roughness and Metalness Maps</a></li>
             <li><a href="/maps/bumpmap">Bump Map</a></li>
             <li><a href="/maps/normalmap">Normal Map</a></li>
+            <li><a href="/maps/displacement-map">Displacement Map</a></li>
+            <li><a href="/maps/displacement-map-repeat-center">Displacement Map with Repeat and Center controls</a></li>
           </ul>
         </li>
       </ul>
