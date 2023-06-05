@@ -28,6 +28,9 @@
             <li><a href="/maps/normalmap">Normal Map</a></li>
             <li><a href="/maps/displacement-map">Displacement Map</a></li>
             <li><a href="/maps/displacement-map-repeat-center">Displacement Map with Repeat and Center controls</a></li>
+            <li><a href="/maps/texture-mipmap">Texture Mipmap</a></li>
+            <li><a href="/maps/custom-mipmap">Custom Mipmap</a></li>
+            <li><a href="/maps/mipmaps-with-anistropic-filtering">Mipmap with Anistropic Filtering</a></li>
           </ul>
         </li>
       </ul>
