@@ -19,6 +19,7 @@
             <li><a href="/materials/mesh-toon-material">Mesh Toon Material</a></li>
           </ul>
         </li>
+
         <li>
           Maps
           <ul>
@@ -31,6 +32,25 @@
             <li><a href="/maps/texture-mipmap">Texture Mipmap</a></li>
             <li><a href="/maps/custom-mipmap">Custom Mipmap</a></li>
             <li><a href="/maps/mipmaps-with-anistropic-filtering">Mipmap with Anistropic Filtering</a></li>
+          </ul>
+        </li>
+
+        <li>
+          Lights
+          <ul>
+            <li><a href="/lights/ambient-light">Ambient Light</a></li>
+            <li><a href="/lights/directional-light">Directional Light</a></li>
+            <li><a href="/lights/hemisphere-light">Hemisphere Light</a></li>
+            <li><a href="/lights/point-light">Point Light</a></li>
+            <li><a href="/lights/spot-light">Spot Light</a></li>
+          </ul>
+        </li>
+
+        <li>
+          Shadows
+          <ul>
+            <li><a href="/lights/shadows/spot-light-shadow">Spot Light Shadow</a></li>
+            <li><a href="/lights/shadows/directional-light-shadow">Directional Light Shadow</a></li>
           </ul>
         </li>
       </ul>
@@ -53,8 +73,16 @@
   nav {
     width: 20rem;
     height: 100%;
-    padding: 2rem 1rem;
+    padding: 4rem 1rem 2rem;
     background-color: oklch(15% 0 0);
+
+    & > ul > li {
+      margin-top: 1rem;
+    }
+
+    & li {
+      margin-top: .25rem;
+    }
 
     & ul {
       list-style: none;
@@ -65,6 +93,11 @@
 
       & a {
         text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          color:oklch(50% 30 120)
+        }
       }
     }
   }
