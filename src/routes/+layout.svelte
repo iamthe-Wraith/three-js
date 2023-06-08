@@ -53,6 +53,25 @@
             <li><a href="/lights/shadows/directional-light-shadow">Directional Light Shadow</a></li>
           </ul>
         </li>
+
+        <li>
+          Controls
+          <ul>
+            <li><a href="/controls/orbit-controls">Orbit Controls</a></li>
+            <li><a href="/controls/trackball-controls">Trackball Controls</a></li>
+            <li><a href="/controls/pointer-lock-controls">Pointer Lock Controls</a></li>
+            <li><a href="/controls/drag-controls">Drag Controls</a></li>
+            <li><a href="/controls/transform-controls">Transform Controls</a></li>
+            <li><a href="/controls/multiple-controls">Multiple Controls</a></li>
+          </ul>
+        </li>
+
+        <li>
+          3D Model Loaders
+          <ul>
+            <li><a href="/3d-model-loaders/obj-model-loader">OBJ Model Loader</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  
@@ -62,7 +81,7 @@
   </main>
 </div>
 
-<style>
+<style lang="scss">
   .page-container {
     display: flex;
     flex-direction: row;
@@ -75,6 +94,7 @@
     height: 100%;
     padding: 4rem 1rem 2rem;
     background-color: oklch(15% 0 0);
+    overflow: auto;
 
     & > ul > li {
       margin-top: 1rem;
