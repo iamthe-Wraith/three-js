@@ -70,6 +70,7 @@
           3D Model Loaders
           <ul>
             <li><a href="/3d-model-loaders/obj-model-loader">OBJ Model Loader</a></li>
+            <li><a href="/3d-model-loaders/mtl-model-loader">MTL Model Loader</a></li>
           </ul>
         </li>
       </ul>
