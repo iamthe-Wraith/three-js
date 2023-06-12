@@ -146,7 +146,7 @@
     position: absolute;
     background-color: rgba(255, 255, 255, 0.5);
     top: 0px;
-    left: 20rem;
+    left: 0px;
     width: 100%;
     height: 100%;
   }

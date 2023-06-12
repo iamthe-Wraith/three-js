@@ -71,6 +71,18 @@
           <ul>
             <li><a href="/3d-model-loaders/obj-model-loader">OBJ Model Loader</a></li>
             <li><a href="/3d-model-loaders/mtl-model-loader">MTL Model Loader</a></li>
+            <li><a href="/3d-model-loaders/gltf-model-loader">GLTF Model Loader</a></li>
+            <li><a href="/3d-model-loaders/draco-loader">DRACO Loader</a></li>
+            <li><a href="/3d-model-loaders/fbx-model-loader">FBX Loader</a></li>
+          </ul>
+        </li>
+
+        <li>
+          Animations
+          <ul>
+            <li><a href="/animations/fbx-animations">FBX Animations</a></li>
+            <li><a href="/animations/gltf-animations">GLTF Animations</a></li>
+            <li><a href="/animations/gltf-custom-animations">GLTF Custom Animations</a></li>
           </ul>
         </li>
       </ul>
@@ -124,6 +136,7 @@
   }
 
   main {
+    position: relative;
     width: calc(100vw - 20rem);
     height: 100%;
     background-color: oklch(0% 0 0);
