@@ -9,3 +9,9 @@
 body {
   overflow: hidden;
 }
+
+.measurementLabel {
+  font-family: monospace;
+  background-color: black;
+  color: white;
+}

@@ -85,6 +85,16 @@
             <li><a href="/animations/gltf-custom-animations">GLTF Custom Animations</a></li>
           </ul>
         </li>
+
+        <li>
+          Raycaster
+          <ul>
+            <li><a href="/raycaster/raycaster">Raycaster</a></li>
+            <li><a href="/raycaster/raycaster-collision-detection">Raycaster Collision Detection</a></li>
+            <li><a href="/raycaster/raycaster-mouse-picking">Raycaster Mouse Picking</a></li>
+            <li><a href="/raycaster/raycaster-measurements">Raycaster Measurements</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  
