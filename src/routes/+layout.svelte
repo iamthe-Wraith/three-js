@@ -102,6 +102,13 @@
             <li><a href="/tweens/tween-js">Tween JS</a></li>
           </ul>
         </li>
+
+        <li>
+          Methods
+          <ul>
+            <li><a href="/methods/vector3-lerp">Vector3.lerp</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  
