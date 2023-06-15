@@ -95,6 +95,13 @@
             <li><a href="/raycaster/raycaster-measurements">Raycaster Measurements</a></li>
           </ul>
         </li>
+
+        <li>
+          Tweens
+          <ul>
+            <li><a href="/tweens/tween-js">Tween JS</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  
