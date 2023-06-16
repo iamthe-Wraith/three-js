@@ -109,6 +109,15 @@
             <li><a href="/methods/vector3-lerp">Vector3.lerp</a></li>
           </ul>
         </li>
+
+        <li>
+          Physics
+          <ul>
+            <li><a href="/physics/cannon-es">Cannon-ES</a></li>
+            <li><a href="/physics/cannon-debug-renderer">Cannon Debug Renderer</a></li>
+            <li><a href="/physics/compound-shapes">Compound Shapes</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>  

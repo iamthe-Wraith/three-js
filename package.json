@@ -25,6 +25,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
+		"eslint-plugin-unused-imports": "^2.0.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"sass": "^1.62.1",
@@ -37,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"cannon-es": "^0.20.0",
 		"svelte-cubed": "^0.2.1",
 		"three": "^0.152.2"
 	}
